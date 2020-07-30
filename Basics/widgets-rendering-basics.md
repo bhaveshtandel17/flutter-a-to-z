@@ -19,3 +19,14 @@ It actually manages this through with the help of 3 trees instead of a Singleton
 **Flutter manage these 3 Different tree in for its rendering process:**
 
 ![alt three tree](./three-tree.png)
+
+So as already seen that a widget is immutable, and so that kind of makes sense because you are working with a **declarative framework** so you grasp what your UI is going to look like & configure it with widgets.
+https://flutter.dev/docs/get-started/flutter-for/declarative
+
+Widget describes configuration of an element, Elements are particularly an instantiation of those widgets. Elements manage updating and changing of the UI, controlling lifecycle of widgets. Lastly, we have a RenderObject which is what’s going to lay out and paint your UI.
+
+**Why are flutter using 3 trees?**
+For this lets look at source code from flutter framework for when it create a flutter app.
+
+Flutter app calls runApp() function initially:
+
