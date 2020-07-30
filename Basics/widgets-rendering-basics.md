@@ -18,4 +18,4 @@ It actually manages this through with the help of 3 trees instead of a Singleton
 
 **Flutter manage these 3 Different tree in for its rendering process:**
 
-![Screenshot](screenshot.png)
+![alt three tree](./three-tree.png)
