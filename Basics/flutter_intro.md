@@ -121,7 +121,7 @@ The debug configuration also checks all asserts, which helps you catch errors ea
 
 **Programming paradigm used by Flutter’s framework**
 
-**Composition** Widgets are themselves often composed of many small, single-purpose widgets that combine to produce powerful effects.
+- **Composition** Widgets are themselves often composed of many small, single-purpose widgets that combine to produce powerful effects.
 
 Most widgets in the Flutter widget library are built in this way. For example, the Material `FlatButton` class is built using a `MaterialButton` class, which itself is built using an `IconTheme`, an `InkWell`, a `Padding`, a `Center`, a `Material`, an `AnimatedDefaultTextStyle`, and a `ConstrainedBox`. The `InkWell` is built using a `GestureDetector`. The `Material` is built using an `AnimatedDefaultTextStyle`, a `NotificationListener`, and an `AnimatedPhysicalModel`. And so on. It’s widgets all the way down.
 
