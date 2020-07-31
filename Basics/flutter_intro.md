@@ -62,3 +62,33 @@ Flutter is built with C, C++, Dart, and Skia (a 2D rendering engine).
 3. When launched, the app loads the Flutter library. Any rendering, input or event handling, and so on, are delegated to the compiled Flutter and app code. This is similar to the way many game engines work.
 4. Debug mode builds use a virtual machine (VM) to run Dart code (hence the “debug” banner they show to remind people that they’re slightly slower) in order to enable Stateful Hot Reload.
 
+**Does Flutter use my system’s OEM widgets?**
+
+No. Instead, Flutter provides a set of widgets (including Material Design and Cupertino (iOS-styled) widgets), managed and rendered by Flutter’s framework and engine
+
+If Flutter reused the OEM widgets, the quality and performance of Flutter apps would be limited by the quality of those widgets.
+
+Modern app design trends point towards designers and users wanting more motion-rich UIs and brand-first designs. In order to achieve that level of customized, beautiful design, Flutter is architectured to drive pixels instead of the OEM widgets.
+
+**What language is Flutter written in?**
+
+Dart for the framework and widgets. The underlying graphics framework and the Dart virtual machine are implemented in C/C++.
+
+**Why did Flutter choose to use Dart?**
+
+Dart runtimes and compilers support the combination of two critical features for Flutter: a JIT-based fast development cycle that allows for shape changing and stateful hot reloads in a language with types, plus an Ahead-of-Time compiler that emits efficient ARM code for fast startup and predictable performance of production deployments.
+
+**What kind of app performance can I expect?**
+
+Flutter apps run via natively compiled code—no interpreters are involved. This means Flutter apps start quickly(to help developers easily achieve a constant 60fps).
+
+**What devices and OS versions does Flutter run on?**
+- Mobile operating systems: Android Jelly Bean, v16, 4.1.x or newer, and iOS 8 or newer.
+- Mobile hardware: iOS devices (iPhone 4S or newer) and ARM Android devices.
+- Flutter supports building ahead-of-time (AOT) compiled libraries for x86_64, armeabi-v7a, and arm64-v8a.
+- Apps built for ARMv7 or ARM64 run fine (using ARM emulation) on many x86 Android devices.
+- We support developing Flutter apps with Android and iOS devices, as well as with Android emulators and the iOS simulator.
+- We test on a variety of low-end to high-end phones and tablets, but we don’t yet have an official device compatibility guarantee.
+
+**Can I use Flutter inside of my existing native app?**
+Yes, one fullscreen Flutter instance can be integrated per app on Android and iOS. [See the integration documentation](https://flutter.dev/docs/development/add-to-app)
