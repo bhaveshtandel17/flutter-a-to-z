@@ -25,7 +25,7 @@ Flutter is different than most other options for building mobile apps because Fl
 * APIs for unit and integration tests
 * Interop and plugin APIs to connect to the system and 3rd-party SDKs
 * Dart DevTools for testing, debugging, and profiling your app
-* Hot Reload
+* Hot Reload, which enables productive development
 * Command-line tools for creating, building, testing, and compiling your apps
 
 **Does Flutter come with a framework?**
@@ -91,4 +91,42 @@ Flutter apps run via natively compiled code—no interpreters are involved. This
 - We test on a variety of low-end to high-end phones and tablets, but we don’t yet have an official device compatibility guarantee.
 
 **Can I use Flutter inside of my existing native app?**
+
 Yes, one fullscreen Flutter instance can be integrated per app on Android and iOS. [See the integration documentation](https://flutter.dev/docs/development/add-to-app)
+
+**Can I access platform services and APIs like sensors and local storage?**
+
+- Flutter gives developers out-of-the-box access to some platform-specific services and APIs from the operating system (but flutter don’t intend to build cross-platform APIs for all native services and APIs.)
+- A number of platform services and APIs have ready-made packages available on pub.dev.
+- You can use Flutter’s asynchronous message passing system to create your own integrations with platform and third-party APIs.[See How?](https://flutter.dev/docs/development/platform-integration/platform-channels#pigeon)
+
+**Can I interop/run/use with my mobile platform’s default programming language?**
+
+Flutter supports calling into the platform, including integrating with Java or Kotlin code on Android, and ObjectiveC or Swift code on iOS. This is enabled via a flexible message passing style where a Flutter app might send and receive messages to the mobile platform using a `BasicMessageChannel`. [See example](https://github.com/flutter/flutter/tree/master/examples/platform_channel)
+
+**How do I write parallel and/or concurrent apps for Flutter?**
+
+Flutter supports isolates. Isolates are separate heaps in Flutter’s VM, and they are able to run in parallel (usually implemented as separate threads). 
+[example](https://github.com/flutter/flutter/blob/master/examples/layers/services/isolate.dart)
+
+**Can I run Dart code in the background of an Flutter app?**
+
+Yes[example](https://medium.com/flutter/executing-dart-in-the-background-with-flutter-plugins-and-geofencing-2b3e40a1a124)
+
+**My app has a Debug banner/ribbon in the upper right. Why am I seeing that?**
+
+The debug configuration runs your Dart code in a VM (Virtual Machine) enabling a fast development cycle with hot reload
+
+The debug configuration also checks all asserts, which helps you catch errors early during development, but imposes a runtime cost. The “Debug” banner indicates that these checks are enabled.
+
+**Programming paradigm used by Flutter’s framework**
+
+**Composition** Widgets are themselves often composed of many small, single-purpose widgets that combine to produce powerful effects.
+
+Most widgets in the Flutter widget library are built in this way. For example, the Material `FlatButton` class is built using a `MaterialButton` class, which itself is built using an `IconTheme`, an `InkWell`, a `Padding`, a `Center`, a `Material`, an `AnimatedDefaultTextStyle`, and a `ConstrainedBox`. The `InkWell` is built using a `GestureDetector`. The `Material` is built using an `AnimatedDefaultTextStyle`, a `NotificationListener`, and an `AnimatedPhysicalModel`. And so on. It’s widgets all the way down.
+
+https://flutter.dev/docs/resources/faq#what-programming-paradigm-does-flutters-framework-use
+
+https://flutter.dev/docs/development/data-and-backend/state-mgmt/declarative
+
+https://flutter.dev/docs/get-started/flutter-for/declarative
